@@ -4,174 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAPH-Rautelak</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://waph-phung.github.io/style1.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="email.js"></script>
+    <script src="https://waph-phung.github.io/clock.js"></script>
+    <script src="script.js"></script>
+    
     <style>
         #response {
             min-height: 45px;
         }
     </style>
+
+    
 </head>
+
 <body class="bg-light">
-    <main class="container my-4">
-        <div id="top" class="bg-dark text-white rounded p-4 mb-4">
-            <h1>Web Application Programming and Hacking</h1>
-            <h2>Front-end Web Development Lab</h2>
-            <h3>Instructor: Dr. Phu Phung</h3>
-        </div>
+    <main class="container py-4">
+        <header class="bg-dark text-white rounded p-4 mb-4">
+            <h1 class="h2">Web Application Programming and Hacking</h1>
+            <h2 class="h4 fw-normal">Front-end Web Development Lab</h2>
+            <h3 class="h5 fw-normal mb-0">Instructor: Dr. Phu Phung</h3>
+        </header>
 
-        <div id="wrapper" class="row g-4">
-            <div id="menubar" class="col-md-3">
+        <div class="row g-4">
+            <div class="col-lg-3">
                 <div class="card shadow-sm">
-                <div class="card-body">
-                <h3>Student: Abhishek Rautela</h3>
-                <div id="email" class="link-primary text-decoration-underline mb-3" onclick="showHideEmail()">Show my email</div>
-                <script src="email.js"></script>
-                <img src="images/headshot.png" alt="My Headshot" class="img-fluid rounded" width="120">
-                </div>
-                </div>
-            </div>
-            <div id="main" class="col-md-9">
+                    <div class="card-body text-center">
+                        <img src="images/headshot.png" alt="My Headshot" class="img-fluid rounded mb-3" width="140">
+                        <h3 class="h5">Student: Abhishek Rautela</h3>
+                        <button id="email" class="btn btn-outline-primary btn-sm" onclick="showHideEmail()">Show my email</button>
+                    </div>
+                  </div>
+              </div>
+
+            <section class="col-lg-9">
                 <div class="card shadow-sm">
-                <div class="card-body">
-                <p>A Simple HTML page</p>
-                Using the <a href="https://www.w3schools.com/html"> W3Schools template</a>
-                <hr>
-                <b>Interaction with forms</b>
-                <div class="mb-3">
-                    <i>Form with an HTTP GET Request</i>
-                    <form class="row g-2 align-items-center mt-1" action="/echo.php" method="GET">
-                        <div class="col-sm">
-                            <input class="form-control" name="data" placeholder="Your input">
-                        </div>
-                        <div class="col-sm-auto">
-                            <input class="btn btn-primary" type="submit" value="Submit">
-                        </div>
-                    </form>
-                </div>
-                <div class="mb-3">
-                    <i>Form with an HTTP POST Request</i>
-                    <form class="row g-2 align-items-center mt-1" action="/echo.php" method="POST" name="echo_post">
-                        <div class="col-sm">
-                            <input class="form-control" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')">
-                        </div>
-                        <div class="col-sm-auto">
-                            <input class="btn btn-primary" type="submit" value="Submit">
-                        </div>
-                    </form>
-                </div>
-                <div>
-                    <i>Ajax requests</i><br>
-                    <input class="form-control my-2" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')" id="data">
-                    <input class="btn btn-success btn-sm mb-2" type="button" value="Ajax Echo" onclick="getEcho()">
-                    <input class="btn btn-success btn-sm mb-2" type="button" value="JQuery Ajax GET Echo" onclick="JQueryAjax()">
-                    <input class="btn btn-success btn-sm mb-2" type="button" value="JQuery Ajax POST Echo" onclick="JQueryAjaxPost()">
-                    <input class="btn btn-success btn-sm mb-2" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
-                    
-                    <div id="response" class="alert alert-warning mt-2"></div>
-                </div>
-                <hr>
-                <b>Experiments with JavaScript</b><br>
-                <i>Inlined JavaScript</i>
-                <div id="date" class="btn btn-outline-primary d-block my-2" onclick="document.getElementById('date').innerText=Date()">Click here to show Date</div>
+                    <div class="card-body p-4">
+                        <p>A Simple HTML page</p>
+                        <p>Using the <a href="https://www.w3schools.com/html">W3Schools template</a></p>
 
-                <div id="digit-clock" class="fs-5 mb-3"></div>
-                <script>
-                    function displayTime(){
-                        document.getElementById('digit-clock').innerText = "Current Time: " + new Date();
-                    }
-                    setInterval(displayTime, 500);
-                </script>
+                        <hr>
 
-                <canvas id="analog-clock" class="bg-secondary rounded-circle" width="150" height="150"></canvas>
-                <script src="https://waph-phung.github.io/clock.js"></script>
-                <script>
-                    var canvas = document.getElementById("analog-clock");
-                    var ctx = canvas.getContext("2d");
-                    var radius = canvas.height / 2;
-                    ctx.translate(radius,radius);
-                    radius = radius * 0.9;
-                    setInterval(drawClock,1000);
+                        <h4>Interaction with Forms</h4>
 
-                    function drawClock() {
-                        drawFace(ctx,radius);
-                        drawNumbers(ctx,radius);
-                        drawTime(ctx, radius);
-                    }
-                </script>
+                        <div class="mb-3">
+                            <p class="fst-italic mb-1">Form with an HTTP GET Request</p>
+                            <form class="row g-2 align-items-center" action="/echo.php" method="GET">
+                                <div class="col-sm">
+                                    <input class="form-control" name="data" placeholder="Your input">
+                                </div>
+                                <div class="col-sm-auto">
+                                    <input class="btn btn-primary" type="submit" value="Submit">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="fst-italic mb-1">Form with an HTTP POST Request</p>
+                            <form class="row g-2 align-items-center" action="/echo.php" method="POST" name="echo_post">
+                                <div class="col-sm">
+                                    <input class="form-control" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')">
+                                </div>
+                                <div class="col-sm-auto">
+                                    <input class="btn btn-primary" type="submit" value="Submit">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="mb-4">
+                            <p class="fst-italic mb-1">Ajax Requests</p>
+                            <input class="form-control mb-2" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')" id="data">
+                            <input class="btn btn-success btn-sm mb-2" type="button" value="Ajax Echo" onclick="getEcho()">
+                            <input class="btn btn-success btn-sm mb-2" type="button" value="jQuery Ajax GET Echo" onclick="JQueryAjax()">
+                            <input class="btn btn-success btn-sm mb-2" type="button" value="jQuery Ajax POST Echo" onclick="JQueryAjaxPost()">
+                            <input class="btn btn-success btn-sm mb-2" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
+
+                            <div id="response" class="alert alert-warning mt-2"></div>
+                        </div>
+
+                        <hr>
+
+                        <h4>Experiments with JavaScript</h4>
+
+                        <p class="fst-italic mb-1">Inlined JavaScript</p>
+                        <button id="date" class="btn btn-outline-primary mb-3" onclick="document.getElementById('date').innerText = Date()">Click here to show Date</button>
+
+                        <div id="digit-clock" class="fs-5 mb-3"></div>
+
+                        <canvas id="analog-clock" class="bg-secondary rounded-circle" width="150" height="150"></canvas>
+                    </div>
                 </div>
-                </div>
-            </div>
+            </section>
         </div>
     </main>
-    
-    
 </body>
 </html>
-
-<script>
-    async function guessAge(name){
-        //input validation for null or empty 
-        if (name.length == 0){
-            alert("name cannot be empty");
-            return;
-        }
-
-        const response = await fetch("https://api.agify.io?name=" + encodeURIComponent(name));
-        const result = await response.json();
-        $("#response").text("Hi " + name + " , your age should be " + result.age);
-    }
-
-    $.get("https://v2.jokeapi.dev/joke/programming?type=single",
-        function(result){
-            // console.log("Frome JokeAPI: " + JSON.stringify(result));
-            $("#response").text("A Programming Joke of the day: " + result.joke);
-        }
-    );
-
-    function JQueryAjax() {
-        var input = $('#data').val();
-        if (input.length === 0){ 
-            return;
-        }
-        $.get("/echo.php?data=" + encodeURIComponent(input),
-            function(result){
-                $("#response").text("Response from server: " + result);
-            }
-        );
-        $('#data').val("");
-    }
-
-    function JQueryAjaxPost() {
-        var input = $('#data').val();
-        if (input.length === 0){ 
-            return;
-        }
-        $.post("/echo.php", {data: input},
-            function(result){
-                $("#response").text("Response from server: " + result);
-            }
-        );
-        $('#data').val("");
-    }
-
-
-    function getEcho(){
-        var input = document.getElementById('data').value;
-        if (input.length === 0){ 
-            return;
-        }
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log("Recieved data = " + xhttp.responseText);
-                document.getElementById("response").innerText = "Response from server: " + xhttp.responseText;
-            }
-        };
-        xhttp.open("GET", "/echo.php?data=" + encodeURIComponent(input), true);
-        xhttp.send();
-        document.getElementById("data").value = "";
-    }
-</script>
