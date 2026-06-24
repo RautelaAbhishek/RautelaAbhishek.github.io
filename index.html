@@ -31,77 +31,90 @@
         </header>
 
         <div id="visit-message" class="alert alert-info"></div>
-
-        <div class="row g-4">
-            <div class="col-lg-3">
+        
+        <div class="row g-4 ">
+        
+                <div class="col-lg-3">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <img src="images/headshot.png" alt="My Headshot" class="img-fluid rounded mb-3" width="140">
                         <h3 class="h5">Student: Abhishek Rautela</h3>
                         <button id="email" class="btn btn-outline-primary btn-sm" onclick="showHideEmail()">Show my email</button>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
 
-            <section class="col-lg-9">
-                <div class="card shadow-sm">
+            <section class="col-lg-9 ">
+                <div class="card shadow-sm h-100">
                     <div class="card-body p-4">
-                        <p>A Simple HTML page</p>
-                        <p>Using the <a href="https://www.w3schools.com/html">W3Schools template</a></p>
-
-                        <hr>
-
-                        <h4>Interaction with Forms</h4>
-
-                        <div class="mb-3">
-                            <p class="fst-italic mb-1">Form with an HTTP GET Request</p>
-                            <form class="row g-2 align-items-center" action="/echo.php" method="GET">
-                                <div class="col-sm">
-                                    <input class="form-control" name="data" placeholder="Your input">
-                                </div>
-                                <div class="col-sm-auto">
-                                    <input class="btn btn-primary" type="submit" value="Submit">
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="mb-3">
-                            <p class="fst-italic mb-1">Form with an HTTP POST Request</p>
-                            <form class="row g-2 align-items-center" action="/echo.php" method="POST" name="echo_post">
-                                <div class="col-sm">
-                                    <input class="form-control" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')">
-                                </div>
-                                <div class="col-sm-auto">
-                                    <input class="btn btn-primary" type="submit" value="Submit">
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="mb-4">
-                            <p class="fst-italic mb-1">Ajax Requests</p>
-                            <input class="form-control mb-2" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')" id="data">
-                            <input class="btn btn-success btn-sm mb-2" type="button" value="Ajax Echo" onclick="getEcho()">
-                            <input class="btn btn-success btn-sm mb-2" type="button" value="jQuery Ajax GET Echo" onclick="JQueryAjax()">
-                            <input class="btn btn-success btn-sm mb-2" type="button" value="jQuery Ajax POST Echo" onclick="JQueryAjaxPost()">
-                            <input class="btn btn-success btn-sm mb-2" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
-
-                            <div id="response" class="alert alert-warning mt-2"></div>
-                        </div>
-
-                        <hr>
-
-                        <h4>Experiments with JavaScript</h4>
-
-                        <p class="fst-italic mb-1">Inlined JavaScript</p>
-                        <button id="date" class="btn btn-outline-primary mb-3" onclick="document.getElementById('date').innerText = Date()">Click here to show Date</button>
-
-                        <div id="digit-clock" class="fs-5 mb-3"></div>
-
-                        <canvas id="analog-clock" class="bg-secondary rounded-circle" width="150" height="150"></canvas>
+                        <h3 class="h5">About Me</h3>
+                        <p>
+                            I am a student at the University of Cincinnati and am passionate about software development, data analysis
+                            and web application development. This website is a showcase of my skills and experience as weel as showing
+                            off some of the projects I have worked on. 
+                        </p>
                     </div>
                 </div>
             </section>
+            
+            <section class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h2 class="card-title">Education</h2>
+                        <p>
+                            <strong>University of Cincinnati</strong><br>
+                            Bachelor of Science in Computer Science
+                        </p>
+                        <p>
+                            <strong>Indian Hill High School</strong><br>
+                            High School Diploma
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h2 class="card-title">Experience</h2>
+                        <p>
+                            I have experience building web applications using HTML, CSS and JavaScript along with some backend development.
+                        </p>
+                        <p><a href="waph.html">View my Web Application Programming and Hacking course page</a></p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h2 class="card-title">Skills</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Programming: Python, JavaScript, C++, HTML, CSS</li>
+                            <li class="list-group-item">Web Development: Bootstrap, jQuery, JavaScript, GitHub Pages</li>
+                            <li class="list-group-item">Data: SQL, Excel, Tableau, Python data tools</li>
+                            <li class="list-group-item">Tools: GitHub, VS Code, Windows, Linux</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
         </div>
+
+        <section class="mt-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center py-4">
+                    <h2 class="h6 text-uppercase text-muted mb-3">Page Tracker</h2>
+                    <a href="https://info.flagcounter.com/JLGM" class="d-inline-block">
+                        <img class="img-fluid border rounded p-2 bg-white" src="https://s01.flagcounter.com/count/JLGM/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_1/" alt="Flag Counter">
+                    </a>
+                    <p class="small text-muted mb-0 mt-3">
+                        Statistics provided by <a href="https://flagcounter.com/" target="_blank">Flag Counter</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
     </main>
 </body>
 </html>
