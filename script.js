@@ -1,5 +1,5 @@
 function displayTime() {
-    document.getElementById('digit-clock').innerText = 'Current Time: ' + new Date();
+    document.getElementById('digit-clock').innerText = 'Current Time: ' + dayjs().format('dddd, MMMM D, YYYY h:mm:ss A');
 }
 
 async function guessAge(name) {
@@ -107,7 +107,16 @@ function loadJoke() {
     });
 }
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
 
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
+}
 
 $(function() {
     checkVisit();
@@ -130,4 +139,10 @@ $(function() {
 
     $('#new-cat').click(loadCatImage);
     loadCatImage();
+
+    $('#change-background').click(function() {
+        var randomColor = getRandomColor();
+        document.body.style.setProperty('background-color', randomColor, 'important');
+        $(this).text('Background Color: ' + randomColor);
+    });
 });
