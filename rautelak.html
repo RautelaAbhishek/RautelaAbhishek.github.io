@@ -1,82 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 5px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 12px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-    .round {
-        border-radius: 8px;
-    }
-    #response {
-        background-color: #ff9800;
-    }
-</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAPH-Rautelak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://waph-phung.github.io/style1.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <style>
+        #response {
+            min-height: 45px;
+        }
+    </style>
 </head>
-<body>
-    <div id="container wrapper">
-        <div id="top">
+<body class="bg-light">
+    <main class="container my-4">
+        <div id="top" class="bg-dark text-white rounded p-4 mb-4">
             <h1>Web Application Programming and Hacking</h1>
             <h2>Front-end Web Development Lab</h2>
             <h3>Instructor: Dr. Phu Phung</h3>
         </div>
-        <div id="wrapper">
-            <div id="menubar">
+
+        <div id="wrapper" class="row g-4">
+            <div id="menubar" class="col-md-3">
+                <div class="card shadow-sm">
+                <div class="card-body">
                 <h3>Student: Abhishek Rautela</h3>
-                <div id="email" onclick="showHideEmail()">Show my email</div>
+                <div id="email" class="link-primary text-decoration-underline mb-3" onclick="showHideEmail()">Show my email</div>
                 <script src="email.js"></script>
-                <img src="images/headshot.png" alt="My Headshot" width="50">
+                <img src="images/headshot.png" alt="My Headshot" class="img-fluid rounded" width="120">
+                </div>
+                </div>
             </div>
-            <div id="main">
+            <div id="main" class="col-md-9">
+                <div class="card shadow-sm">
+                <div class="card-body">
                 <p>A Simple HTML page</p>
                 Using the <a href="https://www.w3schools.com/html"> W3Schools template</a>
                 <hr>
                 <b>Interaction with forms</b>
-                <div>
+                <div class="mb-3">
                     <i>Form with an HTTP GET Request</i>
-                    <form action="/echo.php" method="GET">
-                        Your Input: <input name="data">
-                        <input type="submit" value="Submit">
+                    <form class="row g-2 align-items-center mt-1" action="/echo.php" method="GET">
+                        <div class="col-sm">
+                            <input class="form-control" name="data" placeholder="Your input">
+                        </div>
+                        <div class="col-sm-auto">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div>
                     </form>
                 </div>
-                <div>
+                <div class="mb-3">
                     <i>Form with an HTTP POST Request</i>
-                    <form action="/echo.php" method="POST" name="echo_post">
-                        Your Input: <input name="data" onkeypress="console.log('You have pressed a key')">
-                        <input type="submit" value="Submit">
+                    <form class="row g-2 align-items-center mt-1" action="/echo.php" method="POST" name="echo_post">
+                        <div class="col-sm">
+                            <input class="form-control" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')">
+                        </div>
+                        <div class="col-sm-auto">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div>
                     </form>
                 </div>
                 <div>
                     <i>Ajax requests</i><br>
-                    Your Input:
-                    <input name="data" onkeypress="console.log('You have pressed a key')" id="data">
-                    <input class="button round" type="button" value="Ajax Echo" onclick="getEcho()">
-                    <input class="button round" type="button" value="JQuery Ajax GET Echo" onclick="JQueryAjax()">
-                    <input class="button round" type="button" value="JQuery Ajax POST Echo" onclick="JQueryAjaxPost()">
-                    <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
+                    <input class="form-control my-2" name="data" placeholder="Your input" onkeypress="console.log('You have pressed a key')" id="data">
+                    <input class="btn btn-success btn-sm mb-2" type="button" value="Ajax Echo" onclick="getEcho()">
+                    <input class="btn btn-success btn-sm mb-2" type="button" value="JQuery Ajax GET Echo" onclick="JQueryAjax()">
+                    <input class="btn btn-success btn-sm mb-2" type="button" value="JQuery Ajax POST Echo" onclick="JQueryAjaxPost()">
+                    <input class="btn btn-success btn-sm mb-2" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
                     
-                    <div id="response"></div>
+                    <div id="response" class="alert alert-warning mt-2"></div>
                 </div>
                 <hr>
                 <b>Experiments with JavaScript</b><br>
                 <i>Inlined JavaScript</i>
-                <div id="date" onclick="document.getElementById('date').innerText=Date()">Click here to show Date</div>
+                <div id="date" class="btn btn-outline-primary d-block my-2" onclick="document.getElementById('date').innerText=Date()">Click here to show Date</div>
 
-                <div id="digit-clock"></div>
+                <div id="digit-clock" class="fs-5 mb-3"></div>
                 <script>
                     function displayTime(){
                         document.getElementById('digit-clock').innerText = "Current Time: " + new Date();
@@ -84,7 +84,7 @@
                     setInterval(displayTime, 500);
                 </script>
 
-                <canvas id="analog-clock" width="150" height="150" style="background-color: #999;"></canvas>
+                <canvas id="analog-clock" class="bg-secondary rounded-circle" width="150" height="150"></canvas>
                 <script src="https://waph-phung.github.io/clock.js"></script>
                 <script>
                     var canvas = document.getElementById("analog-clock");
@@ -100,9 +100,11 @@
                         drawTime(ctx, radius);
                     }
                 </script>
+                </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     
     
 </body>
