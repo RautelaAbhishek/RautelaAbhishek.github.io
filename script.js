@@ -54,7 +54,43 @@ function getEcho() {
     document.getElementById('data').value = '';
 }
 
+function setCookie(name, value, days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    var expires = 'expires=' + date.toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + ';' + expires + ';path=/';
+}
+
+function getCookie(name) {
+    var cookieName = name + '=';
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i].trim();
+        if (cookie.indexOf(cookieName) === 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+
+    return '';
+}
+
+function checkVisit() {
+    var lastVisit = getCookie('lastVisit');
+    var currentVisit = new Date().toLocaleString();
+
+    if (lastVisit === '') {
+        $('#visit-message').text('Welcome to my homepage for the first time!');
+    } else {
+        $('#visit-message').text('Welcome back! Your last visit was ' + lastVisit);
+    }
+
+    setCookie('lastVisit', currentVisit, 365);
+}
+
 $(function() {
+    checkVisit();
     displayTime();
     setInterval(displayTime, 500);
 
