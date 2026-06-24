@@ -89,6 +89,26 @@ function checkVisit() {
     setCookie('lastVisit', currentVisit, 365);
 }
 
+function loadCatImage() {
+    $.get('https://api.thecatapi.com/v1/images/search', function(result) {
+        if (result.length > 0) {
+            $('#cat-image').attr('src', result[0].url);
+        }
+    });
+}
+
+function loadJoke() {
+    $.get('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit', function(result) {
+        if (result.type === 'single') {
+            $('#joke-box').text(result.joke);
+        } else {
+            $('#joke-box').html(result.setup + '<br>' + result.delivery);
+        }
+    });
+}
+
+
+
 $(function() {
     checkVisit();
     displayTime();
@@ -105,7 +125,9 @@ $(function() {
         drawTime(ctx, radius);
     }, 1000);
 
-    $.get('https://v2.jokeapi.dev/joke/programming?type=single', function(result) {
-        $('#response').text('A Programming Joke of the day: ' + result.joke);
-    });
+    loadJoke();
+    setInterval(loadJoke, 60000);
+
+    $('#new-cat').click(loadCatImage);
+    loadCatImage();
 });
