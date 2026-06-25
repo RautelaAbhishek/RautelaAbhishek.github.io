@@ -102,7 +102,7 @@ function loadJoke() {
         if (result.type === 'single') {
             $('#joke-box').text(result.joke);
         } else {
-            $('#joke-box').html(result.setup + '<br>' + result.delivery);
+            $('#joke-box').html(result.setup + '<br><br>' + result.delivery);
         }
     });
 }
